@@ -19,8 +19,10 @@ public class HexConverterServer {
 
                 String binaryString = input.readUTF();
                 System.out.println("Binary Value Recieved: " + binaryString);
+
                 String hexString = convertBinaryToHex(binaryString);
                 System.out.println("Hex Value Sent: " + hexString);
+                System.out.println();
 
                 output.writeUTF(hexString);
 

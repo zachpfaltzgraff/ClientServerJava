@@ -9,7 +9,6 @@ public class HexConverterClient {
         try {
             Socket socket = new Socket("localhost", 12345);
             while (true) {
-
                 DataInputStream input = new DataInputStream(socket.getInputStream());
                 DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 
