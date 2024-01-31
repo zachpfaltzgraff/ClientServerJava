@@ -16,11 +16,11 @@ public class HexConverterClient {
                 System.out.print("Enter a binary string: ");
                 String binaryString = scanner.nextLine().trim();
 
-                System.out.println("Sending binary string to server: " + binaryString);
+                System.out.println("Binary Value Sent: " + binaryString);
                 output.writeUTF(binaryString);
 
                 String hexString = input.readUTF();
-                System.out.println("Received hexadecimal string from server: " + hexString);
+                System.out.println("Hex Value Recieved: " + hexString);
 
                 System.out.println();
             }
