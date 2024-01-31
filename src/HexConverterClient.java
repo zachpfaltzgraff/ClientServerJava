@@ -22,6 +22,8 @@ public class HexConverterClient {
 
                 String hexString = input.readUTF();
                 System.out.println("Received hexadecimal string from server: " + hexString);
+
+                System.out.println();
             }
         } catch (Exception e) {
             e.printStackTrace();
