@@ -24,6 +24,7 @@ public class HexConverterClient {
 
                 System.out.println();
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
