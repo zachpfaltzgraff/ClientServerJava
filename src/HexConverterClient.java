@@ -51,7 +51,7 @@ public class HexConverterClient extends JFrame implements ActionListener {
             System.exit(0);
         }
         else if (event.getSource() == convertButton) {
-            String host = hostInput.getText();
+            String binaryValue = hostInput.getText();
 
             try {
                 DataInputStream input = new DataInputStream(socket.getInputStream());
@@ -62,21 +62,13 @@ public class HexConverterClient extends JFrame implements ActionListener {
                 output.writeUTF(binaryString);
                 String hexString = input.readUTF();
 
-                display.append("The conversion at " + host + " is in hexadecimal: " + hexString);
+                display.append("The binary value: " + binaryValue + " is " + hexString + " in hexadecimal.\n");
                 hostInput.setText("");
             } catch (UnknownHostException e) {
                 display.append("No such host!\n");
                 hostInput.setText("");
             } catch (IOException e) {
                 display.append(e.toString() + "\n");
-            } finally {
-                try {
-                    if (socket != null)
-                        socket.close();
-                } catch (IOException ioEx) {
-                    System.out.println("Unable to disconnect!");
-                    System.exit(1);
-                }
             }
         }
     }
