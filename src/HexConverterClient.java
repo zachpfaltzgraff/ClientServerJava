@@ -3,7 +3,6 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.net.*;
 import java.io.*;
-import java.util.Scanner;
 
 public class HexConverterClient extends JFrame implements ActionListener {
     private JTextField hostInput;
