@@ -31,6 +31,12 @@ public class HexConverterClient extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
+        try {
+            socket = new Socket("localhost", 12345);
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+
         SwingUtilities.invokeLater(() -> {
             HexConverterClient frame = new HexConverterClient();
             frame.setSize(400, 300);
@@ -40,18 +46,18 @@ public class HexConverterClient extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent event) {
+        String binaryString;
         if (event.getSource() == exitButton) {
             System.exit(0);
         }
         else if (event.getSource() == convertButton) {
             String host = hostInput.getText();
-            final int SERVER_PORT = 12345;
+
             try {
-                socket = new Socket("localhost", SERVER_PORT);
                 DataInputStream input = new DataInputStream(socket.getInputStream());
                 DataOutputStream output = new DataOutputStream(socket.getOutputStream());
 
-                String binaryString = hostInput.getText().trim();
+                binaryString = hostInput.getText();
 
                 output.writeUTF(binaryString);
                 String hexString = input.readUTF();

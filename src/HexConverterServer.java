@@ -14,7 +14,6 @@ public class HexConverterServer {
             System.out.println("Client connected: " + clientSocket.getInetAddress());
 
             while (true) {
-
                 DataInputStream input = new DataInputStream(clientSocket.getInputStream());
                 DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
 
@@ -25,8 +24,6 @@ public class HexConverterServer {
                 System.out.println("Hex Value Sent: " + hexString);
                 System.out.println();
 
-                input.close();
-                output.close();
                 output.writeUTF(hexString);
 
             }
