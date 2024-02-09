@@ -30,10 +30,13 @@ public class HexConverterClient extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
+        String serverIP = "192.168.56.1";
+        int serverPort = 13;
+
         try {
-            socket = new Socket("localhost", 12345);
+            socket = new Socket(serverIP, serverPort);
         } catch(Exception e) {
-            System.out.println(e);
+            System.out.println("Connection to " + serverIP + " failed: " + e);
         }
 
         SwingUtilities.invokeLater(() -> {
